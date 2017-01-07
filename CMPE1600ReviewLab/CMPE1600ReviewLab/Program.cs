@@ -12,7 +12,7 @@ namespace CMPE1600ReviewLab
         static void Main(string[] args)
         {
             //Variables
-            double originalAmount;
+            double originalAmount;      //Holds the users input
 
             //Asks for user input and determines if any errors are present
             originalAmount = AskUser();

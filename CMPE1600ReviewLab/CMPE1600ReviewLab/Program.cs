@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using GDIDrawer;
 
 namespace CMPE1600ReviewLab
 {
     class Program
     {
+        static CDrawer drawSpace = new CDrawer();
         static void Main(string[] args)
         {
             //Variables
@@ -23,6 +25,9 @@ namespace CMPE1600ReviewLab
 
             //Displays normalized currency
             DisplayConsole(doubleArray);
+
+            //Draws Currency on GDI drawer
+            DrawCurrency(doubleArray, originalAmount);
 
             //Pauses program for user to read output
             Console.ReadKey();
@@ -131,9 +136,9 @@ namespace CMPE1600ReviewLab
                         originalValue = originalValue % 0.10;
                     }
                 }
-                if (originalValue > 0.05)
+                if (originalValue >= 0.049)
                 {
-                    nickels = (originalValue / 0.05);
+                    nickels = (originalValue / 0.049);
                     if (nickels > 0)
                     {
                         originalValue = originalValue % 0.05;
@@ -157,6 +162,55 @@ namespace CMPE1600ReviewLab
                 Console.WriteLine((array[i]));
             }
         }
-        
+        public static void DrawCurrency(double [] array, double originalValue)
+        {
+            drawSpace.AddText("$" + originalValue.ToString(), 20, 325, 20, 150, 50, Color.Yellow);
+            if (array[0] > 0)
+            {
+                drawSpace.AddRectangle(100, 100, 175, 75, Color.PaleVioletRed, 2, Color.Gray);
+                drawSpace.AddText("$50 x " + array[0].ToString(), 10, 145, 100, 75, 75, Color.Black);
+            }
+            if (array[1] > 0)
+            {
+                drawSpace.AddRectangle(100, 200, 175, 75, Color.LawnGreen, 2, Color.Gray);
+                drawSpace.AddText("$20 x " + array[1].ToString(), 10, 145, 200, 75, 75, Color.Black);
+            }
+            if (array[2] > 0)
+            {
+                drawSpace.AddRectangle(100, 300, 175, 75, Color.MediumPurple, 2, Color.Gray);
+                drawSpace.AddText("$10 x " + array[2].ToString(), 10, 145, 300, 75, 75, Color.Black);
+            }
+            if(array[3] > 0)
+            {
+                drawSpace.AddRectangle(100, 400, 175, 75, Color.AliceBlue, 2, Color.Gray);
+                drawSpace.AddText("$5 x " + array[3].ToString(), 10, 145, 400, 75, 75, Color.Black);
+            }
+            if (array[4] > 0)
+            {
+                drawSpace.AddEllipse(400, 100, 57, 57, Color.Silver, 2, Color.Gray);
+                drawSpace.AddText("$2 x " + array[4].ToString(), 10, 390, 90, 75, 75, Color.Black);
+            }
+            if (array[5] > 0)
+            {
+                drawSpace.AddEllipse(400, 160, 57, 57, Color.Gold, 2, Color.Gray);
+                drawSpace.AddText("$1 x " + array[5].ToString(), 10, 390, 150, 75, 75, Color.Black);
+            }
+            if(array[6] > 0)
+            {
+                drawSpace.AddEllipse(400, 220, 57, 57, Color.Silver, 2, Color.Gray);
+                drawSpace.AddText("$0.25 x " + array[6].ToString(), 10, 390, 210, 75, 75, Color.Black);
+            }
+            if(array[7] > 0)
+            {
+                drawSpace.AddEllipse(400, 280, 57, 57, Color.Silver, 2, Color.Gray);
+                drawSpace.AddText("$0.10 x " + array[7].ToString(), 10, 390, 270, 75, 75, Color.Black);
+            }
+            if(array[8] > 0)
+            {
+                drawSpace.AddEllipse(400, 340, 57, 57, Color.Silver, 2, Color.Gray);
+                drawSpace.AddText("$0.05 x " + array[8].ToString(), 10, 390, 330, 75, 75, Color.Black);
+            }
+            
+        }
     }
 }

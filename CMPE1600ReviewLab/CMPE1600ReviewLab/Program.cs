@@ -12,18 +12,22 @@ namespace CMPE1600ReviewLab
         static void Main(string[] args)
         {
             //Variables
-            double originalAmount;      //Holds the users input
-
+            double originalAmount;                   //Holds the users input
+            double [] doubleArray = new double[9];   //Double array that holds all normalized values in double form
+            
             //Asks for user input and determines if any errors are present
             originalAmount = AskUser();
 
             //Normalizes user input
-            Normalize(originalAmount);
+            doubleArray = Normalize(originalAmount);
+
+            //Displays normalized currency
+            DisplayConsole(doubleArray);
 
             //Pauses program for user to read output
             Console.ReadKey();
         }
-        //Methods
+        ///////////////////////////////////////Methods\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
         //Method to ask user for currency and rounds to two decimal places
         public static double AskUser()
@@ -55,17 +59,104 @@ namespace CMPE1600ReviewLab
             return Math.Round(userInput, 2);
         }
         //Method that divides user input for currency by each bill or coin value from largest and draws the value on GDI drawer
-        public static void Normalize(double originalValue)
+        public static double [] Normalize(double originalValue)
         {
-            int numFifty;
-            int numTwenty;
-            int numTen;
-            int numFive;
-            int numTwo;
-            int numOne;
-            int numQuarter;
-            int numDime;
-            int numNickel;
+            double[] currencyArray = new double[9];
+            double bill50 = 0, bill20 = 0, bill10 = 0, bill05 = 0, twoonies = 0, loonies = 0, quarters = 0, dimes = 0, nickels = 0;
+
+            if(originalValue > 0.01)
+            {
+                if (originalValue >= 50.0)
+                {
+                    bill50 = originalValue / 50.0;
+                    if (bill50 > 0)
+                    {
+                        originalValue = originalValue % 50.0;
+                    }
+
+                }
+                if (originalValue >= 20.0)
+                {
+                    bill20 = originalValue / 20.0;
+                    if (bill20 > 0.0)
+                    {
+                        originalValue = originalValue % 20.0;
+                    }
+                }
+                if (originalValue >= 10.0)
+                {
+                    bill10 = originalValue / 10.0;
+                    if (bill10 > 0)
+                    {
+                        originalValue = originalValue % 10.0;
+                    }
+                }
+                if (originalValue >= 5)
+                {
+                    bill05 = (originalValue / 5.0);
+                    if (bill05 > 0.0)
+                    {
+                        originalValue = originalValue % 5.0;
+                    }
+                }
+                if (originalValue >= 2.0)
+                {
+                    twoonies = (originalValue / 2.0);
+                    if (twoonies > 0.0)
+                    {
+                        originalValue = originalValue % 2.0;
+                    }
+                }
+                if (originalValue >= 1.0)
+                {
+                    loonies = (originalValue / 1.0);
+                    if (loonies > 0)
+                    {
+                        originalValue = originalValue % 1;
+                    }
+                }
+                if (originalValue >= 0.25)
+                {
+                    quarters = (originalValue / 0.25);
+                    if (quarters > 0)
+                    {
+                        originalValue = originalValue % 0.25;
+                    }
+                }
+                if (originalValue > 0.10)
+                {
+                    dimes = (originalValue / 0.10);
+                    if (dimes > 0)
+                    {
+                        originalValue = originalValue % 0.10;
+                    }
+                }
+                if (originalValue > 0.05)
+                {
+                    nickels = (originalValue / 0.05);
+                    if (nickels > 0)
+                    {
+                        originalValue = originalValue % 0.05;
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("The given currecny cannot be normalized beyond the given value.");
+            }
+            currencyArray = new double [] {Math.Truncate(bill50), Math.Truncate(bill20), Math.Truncate(bill10), Math.Truncate(bill05), Math.Truncate(twoonies), Math.Truncate(loonies), Math.Truncate(quarters), Math.Truncate(dimes), Math.Truncate(nickels)};
+
+            return currencyArray;
+
+
         }
+        public static void DisplayConsole(double [] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.WriteLine((array[i]));
+            }
+        }
+        
     }
 }

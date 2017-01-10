@@ -59,7 +59,7 @@ namespace CMPE1600ReviewLab
                 
                 if (double.TryParse(input, out userInput))
                 {
-                    userInput = (Math.Round(userInput * 100) * 5 / 5) / 100;
+                    userInput = Math.Round(userInput / 0.05) * 0.05;
                     
                     Console.WriteLine("User entry of {0} interpreted and rounded to {1:C}", input, userInput);
                     error = false;

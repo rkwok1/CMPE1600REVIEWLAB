@@ -19,3 +19,10 @@ C:\Users\rkwok2\Documents\GitHub\CMPE1600REVIEWLAB\CMPE1600ReviewLab\CMPE1600Rev
 C:\Users\rkwok2\Documents\GitHub\CMPE1600REVIEWLAB\CMPE1600ReviewLab\CMPE1600ReviewLab\bin\Debug\CMPE1600ReviewLab.pdb
 C:\Users\rkwok2\Documents\GitHub\CMPE1600REVIEWLAB\CMPE1600ReviewLab\CMPE1600ReviewLab\bin\Debug\GDIDrawer.dll
 C:\Users\rkwok2\Documents\GitHub\CMPE1600REVIEWLAB\CMPE1600ReviewLab\CMPE1600ReviewLab\obj\Debug\CMPE1600ReviewLab.csprojResolveAssemblyReference.cache
+C:\Users\rkwok1\Documents\GitHub\CMPE1600REVIEWLAB\CMPE1600ReviewLab\CMPE1600ReviewLab\bin\Debug\CMPE1600ReviewLab.exe.config
+C:\Users\rkwok1\Documents\GitHub\CMPE1600REVIEWLAB\CMPE1600ReviewLab\CMPE1600ReviewLab\obj\Debug\CMPE1600ReviewLab.exe
+C:\Users\rkwok1\Documents\GitHub\CMPE1600REVIEWLAB\CMPE1600ReviewLab\CMPE1600ReviewLab\obj\Debug\CMPE1600ReviewLab.pdb
+C:\Users\rkwok1\Documents\GitHub\CMPE1600REVIEWLAB\CMPE1600ReviewLab\CMPE1600ReviewLab\bin\Debug\CMPE1600ReviewLab.exe
+C:\Users\rkwok1\Documents\GitHub\CMPE1600REVIEWLAB\CMPE1600ReviewLab\CMPE1600ReviewLab\bin\Debug\CMPE1600ReviewLab.pdb
+C:\Users\rkwok1\Documents\GitHub\CMPE1600REVIEWLAB\CMPE1600ReviewLab\CMPE1600ReviewLab\bin\Debug\GDIDrawer.dll
+C:\Users\rkwok1\Documents\GitHub\CMPE1600REVIEWLAB\CMPE1600ReviewLab\CMPE1600ReviewLab\obj\Debug\CMPE1600ReviewLab.csprojResolveAssemblyReference.cache

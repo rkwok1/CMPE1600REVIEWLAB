@@ -16,7 +16,7 @@ namespace CMPE1600ReviewLab
             //Variables
             double originalAmount;                   //Holds the users input
             double [] doubleArray = new double[9];   //Double array that holds all normalized values in double form
-            
+            string[] currencyArray = new string[9] { "$50", "$20", "$10", "$5", "$2", "$1", "$0.25", "0.10", "0.05" };
             //Asks for user input and determines if any errors are present
             originalAmount = AskUser();
 
@@ -24,7 +24,7 @@ namespace CMPE1600ReviewLab
             doubleArray = Normalize(originalAmount);
 
             //Displays normalized currency
-            DisplayConsole(doubleArray);
+            DisplayConsole(doubleArray, currencyArray);
 
             //Draws Currency on GDI drawer
             DrawCurrency(doubleArray, originalAmount);
@@ -32,23 +32,36 @@ namespace CMPE1600ReviewLab
             //Pauses program for user to read output
             Console.ReadKey();
         }
-        ///////////////////////////////////////Methods\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+        ///////////////////////////////////////Methods\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
         //Method to ask user for currency and rounds to two decimal places
         public static double AskUser()
         {
             //Variables
             double userInput;        //Holds users inputted currency
+            string input = null;     //Holds string of user input for adjustment if symbols are present
             bool error = false;      //Error flag
+
             //Asks user for input and rounds value or rejects if not valid
             do
             {
                 Console.Write("Please enter the amount of currency you wish to normalize in Canadian dollars: ");
-
-
-                if (double.TryParse(Console.ReadLine(), out userInput))
+                foreach (char item in Console.ReadLine())
                 {
-                    Console.WriteLine("User entry of {0} interpreted and rounded to {1}", userInput, Math.Round(userInput,2));
+                    if (char.IsDigit(item)|| item == '.')
+                    {
+                        input += item;
+                    }
+                    
+                }
+
+                
+                
+                if (double.TryParse(input, out userInput))
+                {
+                    userInput = (Math.Round(userInput * 100) * 5 / 5) / 100;
+                    
+                    Console.WriteLine("User entry of {0} interpreted and rounded to {1:C}", input, userInput);
                     error = false;
                 }
                 else
@@ -155,11 +168,11 @@ namespace CMPE1600ReviewLab
 
 
         }
-        public static void DisplayConsole(double [] array)
+        public static void DisplayConsole(double [] array, string [] cArray)
         {
             for (int i = 0; i < array.Length; i++)
             {
-                Console.WriteLine((array[i]));
+                Console.WriteLine("{0} x {1}", cArray[i].ToString(), array[i]);
             }
         }
         public static void DrawCurrency(double [] array, double originalValue)
